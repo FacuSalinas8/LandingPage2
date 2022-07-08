@@ -1,0 +1,206 @@
+:root{
+    --DarkGray: hsl(0, 0%, 63%);
+    --Black: hsl(0, 0%, 0%);
+    --White: hsl(0, 0%, 100%);
+    --VeryDarkGray: hsl(0, 0%, 27%);
+}
+
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.main{
+    display: grid;
+    max-width: 1400px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,max-content);
+    grid-template-areas: 
+    "main"
+    "cta"
+    "image1"
+    "about"
+    "image2"
+    ;
+}
+
+.container{
+    width: 90%;
+    /* background-color:aqua; */
+    margin: 0 auto;
+    overflow: hidden;
+    padding:60px 0;
+}
+
+.main__hero{
+    grid-area: main;
+    background-image: url("../images/desktop-image-hero-1.jpg");
+    min-height: 400px;
+    background-size: cover;
+    background-position: center ;
+}
+
+.main__nav{
+    display:flex;
+}
+
+.main__links{
+    display:none;
+}
+
+.main__logo{
+    margin: 0 auto;
+}
+
+.main__controls{
+    background-color:var(--Black);
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+
+    grid-area: main;
+    align-self: end;
+    justify-self: end;
+}
+
+
+.main__buy{
+    grid-area: cta;
+}
+.main__content{
+    margin:0 6px;
+    
+    
+    width:100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main__title{
+    font-size: 35px;
+    color:var(--Black)
+}
+
+.main__paragraph{
+    line-height:1.5;
+    margin: 20px 0 30px 0;
+    color:var(--DarkGray);
+}
+
+.main__paragraph--about{
+    margin:1em 0 0 0;
+}
+
+.main__cta{
+    text-decoration: none;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: var(--VeryDarkGray);
+}
+
+.main__arrow{
+    margin-left: 15px;
+}
+
+.main__image{
+    grid-area: image1;
+
+    min-height: 249px;
+    width: 100%;
+    height: 100%;
+
+
+    /* min-width: 390px; */
+
+    background-image: url("../images/image-about-dark.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.main__about{
+    grid-area:about;
+    /* width: 100%; */
+}
+
+
+.main__subtitle{
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size:17px;
+}
+
+.main__image--second{
+    grid-area: image2;
+    background-image: url("../images/image-about-light.jpg");
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 768px){
+    .container{
+        width: 85%;
+        padding:70px 0;
+        /* padding:0; */
+    }
+
+    .main__image{
+        width: 100%;
+    }
+
+    .main__about{
+        padding:0;
+    }
+
+
+
+    .main{
+        grid-template-columns: repeat(7,1fr);
+        grid-template-areas: 
+        "main main main main cta cta cta"
+        "main main main main cta cta cta"
+        "main main main main cta cta cta"
+        "image1 image1 about about about image2 image2"
+        "image1 image1 about about about image2 image2"
+        ;
+    }
+
+    .main__controls{
+        grid-area: cta;
+        justify-self: flex-start;
+    }
+
+    .main__logo{
+        margin: 0;
+    }
+    .main__hamburguer{
+        display:none;
+    }
+
+    .main__links{
+        padding: 0;
+        display:grid;
+        grid-auto-flow:column ;
+        gap: 1em;
+        margin-left: 10%;
+    }
+
+    .main__list{
+        list-style: none;
+    }
+
+    .main__link{
+        text-decoration: none;
+        color: var(--White);
+    }
+}
